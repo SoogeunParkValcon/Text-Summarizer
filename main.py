@@ -3,6 +3,7 @@ from TextSummarizer.logging import logger
 
 STAGE_NAME = "Data Ingestion Stage"
 
+# This just takes from the DataIngestionTrainingPipeline class and runs the main method
 try:
     logger.info(f"Running stage: {STAGE_NAME}")
     data_ingestion_pipeline = DataIngestionTrainingPipeline()

@@ -1,5 +1,6 @@
 from TextSummarizer.constants import *
 # the asterisk imports everything in the directory
+# the 'constants' includes the CONFIG_FILE_PATH and PARAMS_FILE_PATH
 
 from TextSummarizer.utils.common import read_yaml, create_directories
 from TextSummarizer.entity import DataIngestionConfig
@@ -19,18 +20,21 @@ class ConfigurationManager:
 
         create_directories([self.config.artifacts_roots]) 
         # this refers to the artifacts_roots in the config.yaml
-        # this creates the artifacts_root directory
+        # this creates the 'artifacts' directory
         # because self.config does the "read_yaml" function which uses ConfigBox, the artifacts_roots can be just accessed by using the dot notation
 
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         """
         This function returns the data ingestion config
         """
+
         config = self.config.data_ingestion
+        # this refers to the data_ingestion in the config.yaml which is loaded above
 
         create_directories([config.root_dir])
-        # this creates the root_dir, given in the config.yaml
+        # this creates the directory under artifacts called 'data_ingestion'
                 
+        # the following defineds the "DataIngestionConfig" class
         data_ingestion_config = DataIngestionConfig(
             root_dir = config.root_dir,
             source_URL = config.source_URL,
