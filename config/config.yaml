@@ -1,0 +1,17 @@
+# this is set up for doing the data ingestion
+
+# URLs and such that are needed can be defined here
+
+# when read, this is a dictionary, but then the read_yaml function converts it to a ConfigBox
+
+
+artifacts_roots: artifacts
+# this defines the artifacts directory where my components and such will be stored
+
+# apaprently, the samsumdata.zip will be downloaded from the github repo and stored, into "data.zip" defined below
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_URL: https://github.com/SoogeunParkValcon/Datasets/raw/main/samsumdata.zip
+  local_data_file: artifacts/data_ingestion/data.zip
+  unzip_dir: artifacts/data_ingestion
+

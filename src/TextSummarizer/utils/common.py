@@ -16,7 +16,7 @@ from typing import Any
 
 
 @ensure_annotations # this is a "decorator" (a function that takes another function as an argument)
-def read_yaml(path_to_aml: Path) -> ConfigBox:
+def read_yaml(path_to_yaml: Path) -> ConfigBox:
     """Reads a YAML file and returns the content of the YAML file as a ConfigBox object.
     Args:
         path_to_yaml (Path): Path to the YAML file.

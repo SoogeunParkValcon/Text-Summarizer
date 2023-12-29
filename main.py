@@ -1,3 +1,14 @@
-from TextSummarizer.logging import logger # we already installed it using the setup.py. So it's a local package..
+from TextSummarizer.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
+from TextSummarizer.logging import logger
 
-logger.info("The custom logging worked, my friend.") # this is how to invoke the log!
+STAGE_NAME = "Data Ingestion Stage"
+
+try:
+    logger.info(f"Running stage: {STAGE_NAME}")
+    data_ingestion_pipeline = DataIngestionTrainingPipeline()
+    data_ingestion_pipeline.main()
+    logger.info(f"Stage: {STAGE_NAME} completed successfully")
+
+except Exception as e:
+    logger.exception(e)
+    raise e    
