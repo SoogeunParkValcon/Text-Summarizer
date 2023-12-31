@@ -4,6 +4,7 @@ from TextSummarizer.constants import *
 
 from TextSummarizer.utils.common import read_yaml, create_directories
 from TextSummarizer.entity import DataIngestionConfig
+from TextSummarizer.entity import DataValidationConfig
 
 class ConfigurationManager:
     def __init__(
@@ -43,4 +44,22 @@ class ConfigurationManager:
         )
         
         return data_ingestion_config
+
+    def data_validation_config(self) -> DataValidationConfig:
+        """
+        This function returns the data validation config
+        """
+        config = self.config.data_validation
+        # this refers to the data_validation in the config.yaml which is loaded above
+
+        create_directories([config.root_dir])
+        # this creates the directory under artifacts called 'data_validation'
+        
+        data_validation_config = DataValidationConfig(
+            root_dir = config.root_dir,
+            STATUS_FILE = config.STATUS_FILE,
+            ALL_REQUIRED_FILES = config.ALL_REQUIRED_FILES
+        )
+        
+        return data_validation_config
 
