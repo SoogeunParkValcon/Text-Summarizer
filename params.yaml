@@ -1,1 +1,15 @@
-key: value
+# This yaml file provides the parameters for the trained pegasus model
+# (providing the arguments instead of hardcoding them in the code)
+# We are reading it with the read_yaml function, which returns a ConfigBox object
+# But when defining it here, it is a dictionary
+
+TrainingArguments:
+  num_train_epochs: 1
+  warmup_steps: 500
+  per_device_train_batch_size: 1
+  weight_decay: 0.01
+  logging_steps: 10
+  evaluation_strategy: steps
+  eval_steps: 500
+  save_steps: 1e6
+  gradient_accumulation_steps: 16

@@ -23,3 +23,19 @@ data_validation:
 # 1. create artifacts/data_validation directory
 # 2. check whether the required files: train, test, validation are all available
 # 3. return the results in the status.txt file
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  data_path: artifacts/data_ingestion/samsum_dataset
+  result_file_name: samsumdata_transformed
+  tokenizer_name: google/pegasus-cnn_dailymail
+# 1. directory created 
+# 2. data read from artifacts/data_ingestion/samsum_dataset
+# 3. data transformed using the tokenizer
+# 4. data saved in artifacts/data_transformation/samsumdata_transformed∑
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+  data_path: artifacts/data_transformation/samsumdata_transformed
+  model_ckpt: google/pegasus-cnn_dailymail
+

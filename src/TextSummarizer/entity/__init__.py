@@ -27,3 +27,14 @@ class DataValidationConfig:
     STATUS_FILE: str
     ALL_REQUIRED_FILES: list
 
+
+@dataclass(frozen = True)
+class DataTransformationConfig:
+    """
+    Providing the format of the data transformation config
+    """
+    root_dir: Path
+    data_path: Path
+    result_file_name: str
+    tokenizer_name: Path
+# tokenizer is also a path.. interesting

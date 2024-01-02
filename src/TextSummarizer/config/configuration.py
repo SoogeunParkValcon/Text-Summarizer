@@ -5,6 +5,7 @@ from TextSummarizer.constants import *
 from TextSummarizer.utils.common import read_yaml, create_directories
 from TextSummarizer.entity import DataIngestionConfig
 from TextSummarizer.entity import DataValidationConfig
+from TextSummarizer.entity import DataTransformationConfig
 
 class ConfigurationManager:
     def __init__(
@@ -62,4 +63,24 @@ class ConfigurationManager:
         )
         
         return data_validation_config
+    
+    
+    def data_transformation_config(self) -> DataTransformationConfig:
+        """
+        This function returns the data transformation config
+        """
+        
+        config = self.config.data_transformation
+        
+        create_directories([config.root_dir])
+        
+        data_transformation_config = DataTransformationConfig(
+            root_dir = config.root_dir,
+            data_path = config.data_path,
+            result_file_name = config.result_file_name,
+            tokenizer_name = config.tokenizer_name
+        )
+    
+        return data_transformation_config
+
 
