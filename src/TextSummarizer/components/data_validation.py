@@ -26,7 +26,7 @@ class DataValidation:
             validation_status = all(file in all_files for file in self.config.ALL_REQUIRED_FILES)
             
             with open(self.config.STATUS_FILE, "w") as f:
-                f.write(f"Validation status: {validation_status}.")
+                f.write(f"Validation status: {validation_status}...")
 
         except Exception as e:
             raise e
